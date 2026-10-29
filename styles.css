@@ -1,0 +1,1356 @@
+/* ==========================================================================
+   Purandar Biryani House & Chinese (पुरंदर बिर्याणी हाऊस अँड चायनिज)
+   Clean, Professional White Theme
+   Directly modeled after MBA Bhurji (mba-bhurgi.vercel.app)
+   ========================================================================== */
+
+:root {
+  /* Brand Primary Colors (Extracted directly from the signboard) */
+  --primary-gold: #FF5F1F;            /* Vibrant Orange from "पुरंदर" */
+  --primary-gold-dark: #E04808;       /* Deep Orange-Red */
+  --primary-gold-light: #FFF4EE;      /* Soft Warm Saffron Cream */
+  --primary-gold-border: #FFD2BC;     /* Subtle Orange Border */
+
+  --brand-black: #141416;             /* Deep Charcoal Black from the sign background */
+  --brand-brown: #DC2626;             /* Bold Red from "बिर्याणी हाऊस अँड चायनिज" */
+  --accent-gold: #F59E0B;             /* Golden spice trim */
+
+  --bg-white: #FFFFFF;
+  --bg-subtle: #FAFAF9;
+  --bg-card: #FFFFFF;
+  --bg-cream: #FFFDF9;
+
+  --text-dark: #1F2937;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  --border-light: #E2E8F0;
+  --border-gold: rgba(255, 95, 31, 0.4);
+
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-gold: 0 10px 25px -5px rgba(255, 95, 31, 0.25);
+
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--brand-black);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.tm {
+  font-size: 0.6em;
+  vertical-align: super;
+  font-weight: 600;
+}
+
+/* Announcement Bar */
+.top-bar {
+  background-color: var(--brand-black);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  padding: 0.55rem 0;
+  border-bottom: 2px solid var(--primary-gold);
+}
+
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #FFF;
+}
+
+.live-status .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10B981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.location-brief {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.top-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.82rem;
+}
+
+.top-link:hover, .maps-link:hover {
+  color: var(--primary-gold);
+}
+
+.maps-link {
+  background: rgba(255, 95, 31, 0.15);
+  border: 1px solid rgba(255, 95, 31, 0.4);
+  color: var(--primary-gold);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+/* Site Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  padding: 0.75rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Red Standing Bar Icon before Font Logo */
+.brand-standing-bar {
+  width: 5px;
+  height: 40px;
+  background: linear-gradient(180deg, #DC2626 0%, #991B1B 100%);
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(185, 28, 28, 0.45);
+}
+
+/* Bold Dark Red for First Name "पुरंदर" across all logos */
+.brand-first {
+  color: #B91C1C !important;
+  font-weight: 900 !important;
+  display: inline-block;
+  letter-spacing: 0.01em;
+}
+
+.brand-second {
+  color: var(--brand-black) !important;
+  font-weight: 800;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-gold);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+}
+
+/* Wide Landscape Brand Logo at the top */
+.brand-logo-landscape {
+  height: 60px;
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-gold);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  transition: var(--transition);
+}
+
+.brand-logo-landscape:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(255, 95, 31, 0.3);
+}
+
+.menu-header-logo, .menu-header-logo-landscape {
+  height: 60px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-logo, .info-logo-landscape {
+  height: 52px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.footer-logo, .footer-logo-landscape {
+  height: 48px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-name {
+  font-family: 'Yatra One', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: var(--brand-black);
+  line-height: 1.15;
+}
+
+.brand-name .brand-first {
+  color: #B91C1C !important;
+}
+
+.brand-name .brand-second {
+  color: var(--brand-black) !important;
+}
+
+.brand-name .tm {
+  font-size: 0.55em;
+  vertical-align: super;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.brand-tagline {
+  font-size: 0.76rem;
+  color: var(--brand-brown);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-main);
+  margin-top: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  position: relative;
+  padding: 0.3rem 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-gold-dark);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-gold);
+  border-radius: 2px;
+}
+
+.header-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-gold);
+  color: #FFFFFF;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--primary-gold-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-gold-dark);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--bg-white);
+  color: var(--brand-black);
+  border: 1.5px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-gold);
+  color: var(--primary-gold-dark);
+  background-color: var(--primary-gold-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline-dark {
+  background-color: transparent;
+  color: var(--brand-black);
+  border: 1.5px solid var(--brand-black);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--brand-black);
+  color: #FFFFFF;
+}
+
+.btn-lg {
+  padding: 0.85rem 1.6rem;
+  font-size: 1rem;
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 4.5rem 0 3.5rem;
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.badge-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--brand-brown);
+  letter-spacing: 0.08em;
+}
+
+.rating-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FEF3C7;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.hero-title {
+  font-size: 3.1rem;
+  font-weight: 800;
+  color: var(--brand-black);
+  letter-spacing: -0.025em;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+
+.accent-text {
+  color: var(--primary-gold-dark);
+}
+
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.hero-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2.2rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.hl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.hl-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.hl-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--brand-black);
+  margin-bottom: 0.15rem;
+}
+
+.hl-item p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Hero Logo Frame */
+.hero-image-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-hero-frame {
+  background: var(--bg-white);
+  border: 2px solid var(--primary-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-gold), var(--shadow-md);
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.2rem;
+  object-fit: contain;
+}
+
+.frame-tagline {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.rural-mark {
+  display: block;
+  font-family: 'Yatra One', 'Noto Sans Devanagari', var(--font-main);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--brand-black);
+  letter-spacing: 0.05em;
+}
+
+.rural-mark .brand-first {
+  color: #B91C1C !important;
+}
+
+.rural-mark .brand-second {
+  color: var(--brand-black) !important;
+}
+
+.frame-tagline p {
+  color: var(--brand-brown);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Section Title Headers */
+.section-title-wrap {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.sub-heading {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--primary-gold-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: var(--brand-black);
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.heading-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.heading-divider .line {
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-gold);
+  border-radius: 2px;
+}
+
+.heading-divider .icon-mid {
+  font-size: 1.1rem;
+}
+
+.section-subtext {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+/* Menu Section */
+.menu-section {
+  padding: 5rem 0;
+  background-color: var(--bg-subtle);
+}
+
+/* The Laminated Physical Menu Card Box (Pure Text Menu, No Photos) */
+.menu-card-container {
+  background-color: #FFFFFF;
+  border: 2px solid var(--primary-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  padding: 3rem 3.5rem;
+  position: relative;
+}
+
+.menu-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-bottom: 2px dashed var(--primary-gold-border);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.header-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.menu-header-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.menu-restaurant-title {
+  font-family: 'Yatra One', 'Noto Sans Devanagari', var(--font-main);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--brand-black);
+  letter-spacing: -0.01em;
+}
+
+.menu-restaurant-title .brand-first {
+  color: #B91C1C !important;
+}
+
+.menu-restaurant-title .brand-second {
+  color: var(--brand-black) !important;
+}
+
+.menu-restaurant-tagline {
+  font-size: 0.9rem;
+  color: var(--brand-brown);
+  font-weight: 700;
+}
+
+.menu-header-badge span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  background-color: var(--primary-gold-light);
+  color: var(--brand-brown);
+  border: 1px solid var(--primary-gold-border);
+  padding: 0.4rem 0.95rem;
+  border-radius: var(--radius-full);
+}
+
+/* Columns Grid (3 Columns) */
+.menu-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1.5px solid var(--brand-black);
+}
+
+.category-header.red-accent {
+  border-bottom-color: var(--brand-brown);
+}
+
+.category-header.gold-accent {
+  border-bottom-color: var(--primary-gold);
+}
+
+.cat-icon {
+  font-size: 1.5rem;
+}
+
+.category-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-black);
+}
+
+.category-hindi {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+}
+
+/* Menu Items List */
+.menu-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.menu-item-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px dotted var(--border-light);
+}
+
+.menu-item-row.featured {
+  background-color: var(--primary-gold-light);
+  padding: 0.9rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--primary-gold-border);
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+/* Dietary Indicators */
+.diet-icon-dot {
+  width: 13px;
+  height: 13px;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.diet-icon-dot.non-veg {
+  border-color: #DC2626;
+}
+.diet-icon-dot.non-veg::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-bottom: 5.5px solid #DC2626;
+}
+
+.diet-icon-dot.veg {
+  border-color: #16A34A;
+}
+.diet-icon-dot.veg::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #16A34A;
+  border-radius: 50%;
+}
+
+.item-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--brand-black);
+}
+
+.tag-star {
+  font-size: 0.68rem;
+  font-weight: 800;
+  background-color: #FEF3C7;
+  color: #92400E;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.tag-spicy {
+  font-size: 0.68rem;
+  font-weight: 800;
+  background-color: #FEE2E2;
+  color: #B91C1C;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+.item-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.item-price {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-black);
+  white-space: nowrap;
+}
+
+/* Menu Bottom Row */
+.menu-bottom-row {
+  margin-top: 2.8rem;
+  padding-top: 2rem;
+  border-top: 2px dashed var(--primary-gold-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+}
+
+.bottom-card-block {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.bottom-block-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-black);
+  margin-bottom: 1rem;
+}
+
+.extras-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.extras-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 0.65rem;
+}
+
+.extras-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.extra-desc strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--brand-black);
+}
+
+.extra-desc small {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.extra-price {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--brand-black);
+  margin-left: 1rem;
+}
+
+.menu-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.dietary-note {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+/* Specialties Section */
+.specialties-section {
+  padding: 4.5rem 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.specialty-card {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.specialty-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-gold);
+}
+
+.sp-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.specialty-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.specialty-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Location Section */
+.location-section {
+  padding: 5rem 0;
+  background-color: var(--bg-subtle);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.info-card {
+  background-color: #FFFFFF;
+  border: 2px solid var(--primary-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.info-brand-name {
+  font-family: 'Yatra One', 'Noto Sans Devanagari', var(--font-main);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--brand-black);
+}
+
+.info-brand-name .brand-first {
+  color: #B91C1C !important;
+}
+
+.info-brand-name .brand-second {
+  color: var(--brand-black) !important;
+}
+
+.info-brand-tagline {
+  font-size: 0.82rem;
+  color: var(--brand-brown);
+  font-weight: 700;
+}
+
+.info-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  margin-bottom: 2rem;
+}
+
+.info-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.detail-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.detail-body {
+  flex: 1;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.15rem;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: var(--brand-black);
+  line-height: 1.5;
+}
+
+.detail-sub {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.open-pill {
+  display: inline-block;
+  margin-top: 0.2rem;
+  color: #10B981;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.phone-link {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--brand-black);
+}
+
+.phone-link:hover {
+  color: var(--primary-gold-dark);
+}
+
+.maps-direct-btn {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary-gold-dark);
+}
+
+.maps-direct-btn:hover {
+  text-decoration: underline;
+}
+
+.info-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Map Wrapper */
+.map-wrapper {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.map-inner {
+  height: 100%;
+  min-height: 480px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-inner iframe {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  border: none;
+}
+
+.map-badge {
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.badge-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--brand-black);
+}
+
+.badge-text span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.map-link-pill {
+  background-color: var(--primary-gold);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+.map-link-pill:hover {
+  background-color: var(--primary-gold-dark);
+}
+
+/* Site Footer */
+.site-footer {
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--border-light);
+  padding: 4rem 0 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.footer-brand-typography {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-brand-title {
+  font-family: 'Yatra One', 'Noto Sans Devanagari', var(--font-main);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--brand-black);
+  line-height: 1.2;
+}
+
+.footer-brand-title .brand-first {
+  color: #B91C1C !important;
+}
+
+.footer-brand-title .brand-second {
+  color: var(--brand-black) !important;
+}
+
+.footer-brand-subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-brown);
+  margin-top: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.footer-brand-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--brand-black);
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-brown);
+}
+
+.footer-about {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 440px;
+}
+
+.footer-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--brand-black);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-links strong {
+  color: var(--brand-black);
+}
+
+.footer-links a:hover {
+  color: var(--primary-gold);
+  text-decoration: underline;
+}
+
+.footer-bottom-bar {
+  background-color: var(--bg-subtle);
+  border-top: 1px solid var(--border-light);
+  padding: 1.25rem 0;
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+/* Print Styles */
+@media print {
+  .top-bar, .site-header, .hero-section, .specialties-section, .location-section, .site-footer, .print-btn {
+    display: none !important;
+  }
+  .menu-section {
+    padding: 0 !important;
+    background: none !important;
+  }
+  .menu-card-container {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .menu-columns {
+    grid-template-columns: 1fr;
+  }
+  .specialties-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero-highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .menu-card-container {
+    padding: 1.5rem;
+  }
+  .menu-bottom-row {
+    grid-template-columns: 1fr;
+  }
+  .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+}

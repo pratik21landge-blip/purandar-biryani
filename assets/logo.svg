@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Yatra+One&amp;family=Plus+Jakarta+Sans:wght@800&amp;display=swap');
+      .title-p { font-family: 'Yatra One', cursive; font-size: 112px; font-weight: 900; fill: #B91C1C; }
+      .sub-b { font-family: 'Yatra One', cursive; font-size: 46px; font-weight: 900; fill: #DC2626; }
+      .sub-c { font-family: 'Yatra One', cursive; font-size: 40px; font-weight: 900; fill: #DC2626; }
+      .sub-en { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 3px; fill: #94A3B8; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Container -->
+  <rect x="15" y="15" width="930" height="230" rx="16" fill="#111215" stroke="#F59E0B" stroke-width="3" filter="url(#shadow)"/>
+  
+  <!-- Top White Accent Line -->
+  <line x1="45" y1="28" x2="915" y2="28" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.95"/>
+
+  <!-- Divider Line -->
+  <line x1="420" y1="45" x2="420" y2="225" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+
+  <!-- Left Text: पुरंदर -->
+  <!-- White stroke background -->
+  <text x="75" y="165" class="title-p" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round">पुरंदर</text>
+  <!-- Red core fill -->
+  <text x="75" y="165" class="title-p">पुरंदर</text>
+
+  <!-- Right Text: बिर्याणी हाऊस -->
+  <text x="455" y="105" class="sub-b" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round">बिर्याणी हाऊस</text>
+  <text x="455" y="105" class="sub-b">बिर्याणी हाऊस</text>
+
+  <!-- Right Text: अँड चायनिज -->
+  <text x="455" y="162" class="sub-c" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round">अँड चायनिज</text>
+  <text x="455" y="162" class="sub-c">अँड चायनिज</text>
+
+  <!-- English Subtitle -->
+  <text x="455" y="200" class="sub-en">BIRYANI HOUSE &amp; CHINESE • KONDHWA, PUNE</text>
+
+  <!-- Veg Dot Badge in corner -->
+  <rect x="888" y="180" width="28" height="28" rx="4" fill="#FFFFFF" stroke="#16A34A" stroke-width="2.5"/>
+  <circle cx="902" cy="194" r="6" fill="#16A34A"/>
+</svg>
